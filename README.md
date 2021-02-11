@@ -18,3 +18,5 @@ This Note Taker can be used to write and save notes. This application uses Expre
 ## Usage
 
 ## License
+
+MIT License
