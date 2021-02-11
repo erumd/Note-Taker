@@ -20,3 +20,5 @@ This Note Taker can be used to write and save notes. This application uses Expre
 ## License
 
 MIT License
+
+Copyright (C) 2021, Erum Dhukka
