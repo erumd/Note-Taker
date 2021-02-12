@@ -4,9 +4,11 @@ html, body {
   padding: 0;
 }
 
+
 .save-note {
   display: none;
 }
+
 
 .icons i {
   margin-left: 15px;
@@ -14,6 +16,7 @@ html, body {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
 
 .note-textarea, .note-title {
   color: #000000;
