@@ -15,6 +15,7 @@ if (window.location.pathname === '/notes') {
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
+
 };
 
 // Hide an element
