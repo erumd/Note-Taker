@@ -25,12 +25,12 @@ app.use(express.json());
 //calls the index.html. Star Wars Heruko activity
 // Basic route that sends the user first to the AJAX Page
 app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "develop/public/index.html"))
+  res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
 //call notes.html
 app.get("/notes", (req, res) =>
-  res.sendFile(path.join(__dirname, "develop/public/notes.html"))
+  res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
 //used index.js to display all notes
