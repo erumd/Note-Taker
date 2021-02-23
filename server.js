@@ -3,7 +3,7 @@ const path = require("path");
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 //finds folder
 app.use(express.static("public"));
@@ -21,7 +21,7 @@ app.get("/api/notes", (req, res) => {
 
 //deleting notes
 
-//calls the index.html
+//calls the index.html. Hot restaurant activity
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
