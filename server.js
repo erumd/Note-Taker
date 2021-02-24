@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+// const getAndRenderNotes = require("./public/assets/js/index");
+
 
 // Sets up the Express App
 const app = express();
@@ -13,10 +15,17 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// require("./db/db.json")(app);
+
 //gets saved notes and put in db.json
-// app.get("/api/notes", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/db/db.json"));
-// });
+app.get("/api/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "/db/db.json"));
+});
+
+//`POST /api/notes` should receive a new note to save on the request body,
+//this will add what the user enters to the page
+// app.post("/api/notes", (req, res) => {
+//   const newNote = req.body;
 
 //add notes to db.jason
 
