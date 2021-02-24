@@ -17,9 +17,13 @@ This Note Taker can be used to write and save notes. This application uses Expre
 
 ## Usage
 
- 
 ## Contribution
+
 https://www.youtube.com/watch?v=Qo71smMMQBc&t=186s&ab_channel=GitBinx
+
+https://github.com/erumd/Note-Taker
+
+https://whispering-falls-96422.herokuapp.com/
 
 ## License
 
