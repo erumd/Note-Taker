@@ -28,11 +28,11 @@ module.exports = (app) => {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    if (notesData.length) {
-      notesData.push(req.body);
+    if (notes.length) {
+      notes.push(req.body);
       res.json(true);
     } else {
-      notesData.push(req.body);
+      notes.push(req.body);
       res.json(false);
     }
   });
@@ -42,7 +42,7 @@ module.exports = (app) => {
 
   app.post("/api/clear", (req, res) => {
     // Empty out the arrays of data
-    notesData.length = 0;
+    notes.length = 0;
     // waitListData.length = 0;
 
     res.json({ ok: true });
