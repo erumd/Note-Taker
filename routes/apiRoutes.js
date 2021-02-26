@@ -1,6 +1,6 @@
 //used hot restaurant Activity
 // Include fs module
-//https://www.youtube.com/watch?v=yFnXF-w2XI0&ab_channel=JohnCosper
+
 var fs = require("fs");
 var notes = require("../db/db.json");
 
@@ -9,50 +9,20 @@ const { v4: uuid } = require("uuid");
 const { writeFileSynch } = require("fs");
 const { join } = require("path");
 
-// const { notStrictEqual } = require("assert");
-
 // ROUTING
 
 module.exports = (app) => {
-  // API GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
-
   app.get("/api/notes", (req, res) => {
-    res.json(notes);
+    //BSC tutor helped
+    const notes = fs.readFileSync("./db/db.json", "utf-8");
+    res.json(JSON.parse(notes));
   });
 
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
-  // ---------------------------------------------------------------------------
-
   app.post("/api/notes", (req, res) => {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body parsing middleware
-    //Will helped
-
-    // }
-    //create note with uuid
-
-    // res.json(createNote);
     req.body.id = uuid("");
-    //ORIGINAL CODE MESSING WITH
     notes.push(req.body);
     fs.writeFileSync("./db/db.json", JSON.stringify(notes));
     res.json(notes);
-
-    // notes.push(req.body);
-    // fs.writeFileSync("./db/db.json", JSON.stringify(notes));
-    // // if (err) throw err;
-    // notesdb = notes;
-    // res.send(notesdb);
   });
 
   // _______________________________________ Trying to get note
@@ -67,7 +37,6 @@ module.exports = (app) => {
   // adding in the : passes in the id as a req.params since that is how the javascript front end is passing
   // it to the routes if you look at index.js line 47 ( in the public folder)
   app.delete("/api/notes/:id", function (req, res) {
-    // note_data.length = 0;
     let deleteNote = req.params.id;
     console.log(deleteNote);
     //tutor helped with
@@ -83,23 +52,6 @@ module.exports = (app) => {
       fs.writeFile("./db/db.json", JSON.stringify(filtered), (err) => {
         if (err) throw err;
         res.sendStatus(204); //tutor said to delete. and error on webpages GET caught goes away. server still running
-
-        //HARD WORK BELOW COMMENTED OUT TO REFACTOR
-        // tutor.splice
-        // for (let i = 0; i < notes.length; i++) {
-        //   console.log("note id", notes[i].id);
-
-        //Don't need bc using
-        // if (notes[i].id === deleteNote) {
-        //   console.log("splice used", notes.splice(i, 1));
-        //   notes.splice(i, 1);
-
-        // what happen to the notes array?
-        // console.log(notes);
-        // }
-        // }
-        // res.json({ ok: true });
-        // res.json({ ok: true }).sendStatus(204); //if combined both then get GET Caught error
       });
     });
   });
