@@ -14,12 +14,20 @@ This Note Taker can be used to write and save notes. This application uses Expre
 - [License](#license)
 
 ## Installation
+clone the above repo link and open it on your computer.
+
+In terminal open up the command line in the correct file location.
+
+This application will be invoked by using the following command:bash & node server.js
+
+When prompted, choose from employee role to add, and enter your response.
+
+Open generateIndex.html file to view your input .
 
 ## Usage
 
 ## Contribution
 
-https://www.youtube.com/watch?v=Qo71smMMQBc&t=186s&ab_channel=GitBinx
 
 https://github.com/erumd/Note-Taker
 
