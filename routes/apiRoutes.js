@@ -2,13 +2,12 @@
 // Include fs module
 var fs = require("fs");
 var notes = require("../db/db.json");
-//office hours
-// const { v4 } = require("uuid");
 
 //office hours
+const { v4: uuid } = require("uuid");
 const { writeFileSynch } = require("fs");
-// office hours
-// const { join } = require("path");
+const { join } = require("path");
+
 // const { notStrictEqual } = require("assert");
 
 // ROUTING
@@ -38,26 +37,51 @@ module.exports = (app) => {
     // req.body is available since we're using the body parsing middleware
     //Will helped
 
-    notes.push(req.body);
-
-    fs.readFileSync("./db/db.json", JSON.stringify(notes));
-    res.json(notes);
     // }
+    //create note with uuid
+
+    // res.json(createNote);
+
+    notes.push(req.body);
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes));
+    res.json(notes);
   });
 
-  //dev.to/tejesh/nodejs
-  // let notes1 = require("./db/db.json");
-
-  // // using fs module to read json
-  // const fs = require("fs");
-  // let notes2 = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
-
-  // app.delete('/api/notes' , ()
-
-  const deleteNote = (req, res) => {
-    const { notes } = req.body;
-    const { id } = req.body;
-    const filteredNotes = notes.map((note) => note.id !== id);
-    fs.writeFile(filterNotes);
-  };
+  app.post("/api/clear", (req, res) => {
+    // server code for clearing out all the notes when clicked on in future release
+    const createNote = ({ title, text }) => {
+      return {
+        id: uuid(),
+        title,
+        text,
+      };
+    };
+    res.json(createNote);
+  });
 };
+
+const deleteNote = (req, res) => {
+  // const { notes } = req.body;
+  const { id } = req.body;
+  const filteredNotes = notes.map((note) => note.id !== id);
+  fs.writeFile(filterNotes);
+};
+
+// API call for deleting a note from the list or array
+// app.delete("/api/notes/:id", (req, res) => {
+//   const deleteID = req.params.id;
+//   for (let i = 0; i < notes.length; i++) {
+//     if (deleteID === notes[i].id) {
+//       notesData.splice(i, 1);
+//       // writeToJSONfile();
+//     }
+//   }
+//   res.end();
+// });
+
+// app.post("/api/notes", (req, res) => {
+//   const newNotes = req.body;
+//   notesData.push(req.body);
+//   // writeToJSONfile();
+//   res.json(notes);
+// });
