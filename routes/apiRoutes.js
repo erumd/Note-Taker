@@ -64,17 +64,17 @@ module.exports = (app) => {
 
   // _______________________________________ Trying to delete note
 
-  app.post("/api/clear", (req, res) => {
-    // server code for clearing out all the notes when clicked on in future release
-    const createNote = ({ title, text }) => {
-      return {
-        id: uuid(""),
-        title: data.title,
-        text: data.text,
-      };
-    };
-    res.json(createNote);
-  });
+  // app.post("/api/clear", (req, res) => {
+  //   // server code for clearing out all the notes when clicked on in future release
+  //   const createNote = ({ title, text }) => {
+  //     return {
+  //       id: uuid(""),
+  //       title: data.title,
+  //       text: data.text,
+  //     };
+  //   };
+  //   res.json(createNote);
+  // });
 
   // const deleteNote = (req, res) => {
   //   // const { notes } = req.body;
@@ -103,7 +103,7 @@ module.exports = (app) => {
 
       fs.writeFile("./db/db.json", JSON.stringify(filtered), (err) => {
         if (err) throw err;
-        res.sendStatus(204);
+        // res.sendStatus(204); tutor said to delete. and error on webpages GET caught goes away. server still running
 
         // tutor.splice
         for (let i = 0; i < notes.length; i++) {
@@ -118,6 +118,7 @@ module.exports = (app) => {
           }
         }
         res.json({ ok: true });
+        res.json({ ok: true }).sendStatus(204); //if combined both then get GET Caught error
       });
     });
   });
@@ -156,3 +157,11 @@ module.exports = (app) => {
 // Then once that works- it will trigger the delete route- and then you should be able to console log deleteId --> if that is correct and shows the correct Id that you clicked on - then (as far as I can tell) the rest of the function is written correctly and removes the id
 // 1:29
 // I'll write out some next steps for you to try and get this one to work that are a little more specific
+
+// _____________________
+// Now need to get DOM to delete note
+// As for how to delete and update, one approach for this would be to consider the chain of events happening when we click the delete. I would consider add more functionality here to handle the following:
+// 1. delete the note with the delete request.
+// 2. clear the DOM of all notes that were previously there.
+// 3. Make a new fetch request to get all the updated notes list!
+// Basically to update the DOM after we delete a note, we will need to make another GET request to get the updated notes.
