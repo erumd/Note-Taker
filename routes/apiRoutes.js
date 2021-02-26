@@ -117,3 +117,17 @@ module.exports = (app) => {
 //
 
 // [{"title":"Test Title","text":"Test Text","id":1}]
+
+// tutor to write new notes
+// So in you code you use
+// .setAttribute("readonly", true);
+// 12:43
+// This is fine if we just want to view a note, but if you want to edit a note you will need to be able to type into the textarea
+// New
+// 12:45
+// So perhaps the steps I would take are to
+// 1. use .setAttribute("readonly", false); to make the textfield editable
+// 2. in your post "/api/notes" route check the id of the note the user has sent
+// 3. if that id matches any id that is in db.json you will want to replace that note rather than push a new note
+// 12:45
+// After that your note should be editable! :slightly_smiling_face:
