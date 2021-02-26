@@ -10,7 +10,6 @@ const { writeFileSynch } = require("fs");
 const { join } = require("path");
 
 // ROUTING
-
 module.exports = (app) => {
   app.get("/api/notes", (req, res) => {
     //BSC tutor helped
