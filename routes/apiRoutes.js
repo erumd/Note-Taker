@@ -97,30 +97,31 @@ module.exports = (app) => {
       if (err) throw err;
       let notes = JSON.parse(data);
       console.log("notes", notes);
-      // tutor.splice
-      for (let i = 0; i < notes.length; i++) {
-        console.log("note id", notes[i].id);
+      //tutor helped with filter method
+      const filtered = notes.filter((note) => note.id !== deleteNote);
+      console.log("filtered", filtered);
 
-        if (notes[i].id === deleteNote) {
-          console.log("splice method", notes.splice(i, 1));
-          notes.splice(i, 1);
+      fs.writeFile("./db/db.json", JSON.stringify(filtered), (err) => {
+        if (err) throw err;
+        res.sendStatus(204);
 
-          // what happen to the notes array?
-          console.log(notes);
+        // tutor.splice
+        for (let i = 0; i < notes.length; i++) {
+          console.log("note id", notes[i].id);
+
+          if (notes[i].id === deleteNote) {
+            console.log("splice used", notes.splice(i, 1));
+            notes.splice(i, 1);
+
+            // what happen to the notes array?
+            console.log(notes);
+          }
         }
-      }
+        res.json({ ok: true });
+      });
     });
-
-    res.json({ ok: true });
   });
-
-  // // re-write file
-  // fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
-  //   if (err) throw err;
-  //   notes2 = notes;
-  //   res.send(notes2);
-  // });
-};
+}; //end module.export
 
 // app.post("/api/notes", (req, res) => {
 //   const newNotes = req.body;
