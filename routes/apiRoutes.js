@@ -1,6 +1,15 @@
+//used hot restaurant Activity
 // Include fs module
 var fs = require("fs");
 var notes = require("../db/db.json");
+//office hours
+// const { v4 } = require("uuid");
+
+//office hours
+const { writeFileSynch } = require("fs");
+// office hours
+// const { join } = require("path");
+// const { notStrictEqual } = require("assert");
 
 // ROUTING
 
@@ -13,7 +22,6 @@ module.exports = (app) => {
 
   app.get("/api/notes", (req, res) => {
     res.json(notes);
-    console.log(notes);
   });
 
   // API POST Requests
@@ -28,26 +36,28 @@ module.exports = (app) => {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    if (notes.length) {
-      notes.push(req.body);
-      res.json(true);
-    } else {
-      notes.push(req.body);
-      res.json(false);
-    }
+    //Will helped
+
+    notes.push(req.body);
+
+    fs.readFileSync("./db/db.json", JSON.stringify(notes));
+    res.json(notes);
+    // }
   });
 
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
+  //dev.to/tejesh/nodejs
+  // let notes1 = require("./db/db.json");
 
-  app.post("/api/clear", (req, res) => {
-    // Empty out the arrays of data
-    notes.length = 0;
-    // waitListData.length = 0;
+  // // using fs module to read json
+  // const fs = require("fs");
+  // let notes2 = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
 
-    res.json({ ok: true });
-  });
+  // app.delete('/api/notes' , ()
+
+  const deleteNote = (req, res) => {
+    const { notes } = req.body;
+    const { id } = req.body;
+    const filteredNotes = notes.map((note) => note.id !== id);
+    fs.writeFile(filterNotes);
+  };
 };
-
-//delete the notes
-// app.delete
