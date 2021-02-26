@@ -4,7 +4,7 @@
 
 ## Description
 
-This Note Taker can be used to write and save notes. This application uses Express.js back end and will save and retrieve note data from a JSON file. You can add notes, edit previous added notes, add new notes, and delete previous notes.
+This Note Taker can be used to write and save notes. This application uses Express.js back end and will save and retrieve note data from a JSON file. You can add notes, edit previous notes, add new notes, and delete previous notes.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ This Note Taker can be used to write and save notes. This application uses Expre
 - [Credits](#credits)
 - [License](#license)
 
-## Installation/ ## Usage
+## Installation/ Usage
 
 https://github.com/erumd/Note-Taker
 
