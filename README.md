@@ -13,12 +13,16 @@ This Note Taker can be used to write and save notes. This application uses Expre
 - [Credits](#credits)
 - [License](#license)
 
-## Installation
-clone the above repo link and open it on your computer.
+## Installation/ ## Usage
 
-In terminal open up the command line in the correct file location.
+https://github.com/erumd/Note-Taker
 
-This application will be invoked by using the following command:bash & node server.js
+https://whispering-falls-96422.herokuapp.com/
+
+Clone the above GitHub repo link and open it on your computer. You can also click on the Heroku link and open up the website to add notes.
+
+![Screenshot](./Assets/note.jpg)
+![Screenshot](./Assets/addnote.jpg)
 
 When prompted, choose from employee role to add, and enter your response.
 
@@ -26,12 +30,11 @@ Open generateIndex.html file to view your input .
 
 ## Usage
 
-## Contribution
+## Questions
 
-
-https://github.com/erumd/Note-Taker
-
-https://whispering-falls-96422.herokuapp.com/
+If you have any questions or would like to contribute you can view my GitHub account:
+(https://github.com/erumd)
+or email me erumdhukka531@gmail.com.
 
 ## License
 
