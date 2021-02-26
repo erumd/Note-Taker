@@ -117,7 +117,7 @@ module.exports = (app) => {
             console.log(notes);
           }
         }
-        res.json({ ok: true });
+        // res.json({ ok: true });
         res.json({ ok: true }).sendStatus(204); //if combined both then get GET Caught error
       });
     });
