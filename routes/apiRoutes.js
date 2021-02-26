@@ -103,22 +103,22 @@ module.exports = (app) => {
 
       fs.writeFile("./db/db.json", JSON.stringify(filtered), (err) => {
         if (err) throw err;
-        // res.sendStatus(204); tutor said to delete. and error on webpages GET caught goes away. server still running
+        res.sendStatus(204); //tutor said to delete. and error on webpages GET caught goes away. server still running
 
         // tutor.splice
-        for (let i = 0; i < notes.length; i++) {
-          console.log("note id", notes[i].id);
+        // for (let i = 0; i < notes.length; i++) {
+        //   console.log("note id", notes[i].id);
 
-          if (notes[i].id === deleteNote) {
-            console.log("splice used", notes.splice(i, 1));
-            notes.splice(i, 1);
+        // if (notes[i].id === deleteNote) {
+        //   console.log("splice used", notes.splice(i, 1));
+        //   notes.splice(i, 1);
 
-            // what happen to the notes array?
-            console.log(notes);
-          }
-        }
+        // what happen to the notes array?
+        // console.log(notes);
+        // }
+        // }
         // res.json({ ok: true });
-        res.json({ ok: true }).sendStatus(204); //if combined both then get GET Caught error
+        // res.json({ ok: true }).sendStatus(204); //if combined both then get GET Caught error
       });
     });
   });
@@ -150,12 +150,9 @@ module.exports = (app) => {
 // TOTOR HELP FOR DELETE
 // have you checked out how the front end javascript file is passing the id back to the api routes?
 
-// 1:28
+//
 // Looks like you are very close! But you'll want to pay attention to how the note is being passed in- if it's supposed to be a req.params it will have to be inside of the route - part of the path
-// New
-// 1:29
 // Then once that works- it will trigger the delete route- and then you should be able to console log deleteId --> if that is correct and shows the correct Id that you clicked on - then (as far as I can tell) the rest of the function is written correctly and removes the id
-// 1:29
 // I'll write out some next steps for you to try and get this one to work that are a little more specific
 
 // _____________________
