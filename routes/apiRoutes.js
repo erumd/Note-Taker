@@ -105,6 +105,7 @@ module.exports = (app) => {
         if (err) throw err;
         res.sendStatus(204); //tutor said to delete. and error on webpages GET caught goes away. server still running
 
+        //HARD WORK BELOW COMMENTED OUT TO REFACTOR
         // tutor.splice
         // for (let i = 0; i < notes.length; i++) {
         //   console.log("note id", notes[i].id);
@@ -123,6 +124,8 @@ module.exports = (app) => {
     });
   });
 }; //end module.export
+
+// ___________________________________________________________________________________________HARD WORK BELOW
 
 // app.post("/api/notes", (req, res) => {
 //   const newNotes = req.body;
