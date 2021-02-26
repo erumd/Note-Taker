@@ -42,7 +42,7 @@ module.exports = (app) => {
     //create note with uuid
 
     // res.json(createNote);
-
+    req.body.id = uuid("");
     //ORIGINAL CODE MESSING WITH
     notes.push(req.body);
     fs.writeFileSync("./db/db.json", JSON.stringify(notes));
@@ -115,3 +115,5 @@ module.exports = (app) => {
 //   // writeToJSONfile();
 //   res.json(notes);
 //
+
+// [{"title":"Test Title","text":"Test Text","id":1}]
