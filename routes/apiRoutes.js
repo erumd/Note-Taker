@@ -75,39 +75,40 @@ module.exports = (app) => {
     };
     res.json(createNote);
   });
+
+  // const deleteNote = (req, res) => {
+  //   // const { notes } = req.body;
+  //   const { id } = req.body;
+  //   const filteredNotes = notes.map((note) => note.id !== id);
+  //   fs.writeFile(filterNotes);
+  // };
+
+  // _________________________________________________________________trying new delete
+  // API Delete
+  // adding in the : passes in the id as a req.params since that is how the javascript front end is passing
+  // it to the routes if you look at index.js line 47 ( in the public folder)
+  app.delete("/api/notes:id", function (req, res) {
+    let deleteID = req.params.id; //tutor helped with
+
+    fs.readFile("./db/db.json", (err, data) => {
+      if (err) throw err;
+      let notes = JSON.parse(data);
+      // tutor.splice
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].id === deleteID) {
+          notes.splice(i, 1);
+        }
+      }
+    });
+  });
+
+  // // re-write file
+  // fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
+  //   if (err) throw err;
+  //   notes2 = notes;
+  //   res.send(notes2);
+  // });
 };
-
-// const deleteNote = (req, res) => {
-//   // const { notes } = req.body;
-//   const { id } = req.body;
-//   const filteredNotes = notes.map((note) => note.id !== id);
-//   fs.writeFile(filterNotes);
-// };
-
-// _________________________________________________________________trying new delete
-// API Delete
-// app.delete("/api/notes", function (req, res) {
-//   let deleteID = req.params.id; //tutor helped with
-
-//   // read file and parse
-//   fs.readFile("./db/db.json", (err, data) => {
-//     if (err) throw err;
-//     let notes = JSON.parse(data);
-//     // tutor.splice
-//     for (let i = 0; i < notes.length; i++) {
-//       if (notes[i].id === deleteID) {
-//         notes.splice(i, 1);
-//       }
-//     }
-//   });
-// });
-
-// // re-write file
-// fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
-//   if (err) throw err;
-//   notes2 = notes;
-//   res.send(notes2);
-// });
 
 // app.post("/api/notes", (req, res) => {
 //   const newNotes = req.body;
@@ -131,3 +132,14 @@ module.exports = (app) => {
 // 3. if that id matches any id that is in db.json you will want to replace that note rather than push a new note
 // 12:45
 // After that your note should be editable! :slightly_smiling_face:
+
+// TOTOR HELP FOR DELETE
+// have you checked out how the front end javascript file is passing the id back to the api routes?
+
+// 1:28
+// Looks like you are very close! But you'll want to pay attention to how the note is being passed in- if it's supposed to be a req.params it will have to be inside of the route - part of the path
+// New
+// 1:29
+// Then once that works- it will trigger the delete route- and then you should be able to console log deleteId --> if that is correct and shows the correct Id that you clicked on - then (as far as I can tell) the rest of the function is written correctly and removes the id
+// 1:29
+// I'll write out some next steps for you to try and get this one to work that are a little more specific
