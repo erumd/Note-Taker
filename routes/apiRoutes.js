@@ -62,27 +62,6 @@ module.exports = (app) => {
     res.json(json);
   });
 
-  // _______________________________________ Trying to delete note
-
-  // app.post("/api/clear", (req, res) => {
-  //   // server code for clearing out all the notes when clicked on in future release
-  //   const createNote = ({ title, text }) => {
-  //     return {
-  //       id: uuid(""),
-  //       title: data.title,
-  //       text: data.text,
-  //     };
-  //   };
-  //   res.json(createNote);
-  // });
-
-  // const deleteNote = (req, res) => {
-  //   // const { notes } = req.body;
-  //   const { id } = req.body;
-  //   const filteredNotes = notes.map((note) => note.id !== id);
-  //   fs.writeFile(filterNotes);
-  // };
-
   // _________________________________________________________________trying new delete
   // API Delete
   // adding in the : passes in the id as a req.params since that is how the javascript front end is passing
@@ -110,6 +89,7 @@ module.exports = (app) => {
         // for (let i = 0; i < notes.length; i++) {
         //   console.log("note id", notes[i].id);
 
+        //Don't need bc using
         // if (notes[i].id === deleteNote) {
         //   console.log("splice used", notes.splice(i, 1));
         //   notes.splice(i, 1);
@@ -126,6 +106,27 @@ module.exports = (app) => {
 }; //end module.export
 
 // ___________________________________________________________________________________________HARD WORK BELOW
+
+// _______________________________________ Trying to delete note
+
+// app.post("/api/clear", (req, res) => {
+//   // server code for clearing out all the notes when clicked on in future release
+//   const createNote = ({ title, text }) => {
+//     return {
+//       id: uuid(""),
+//       title: data.title,
+//       text: data.text,
+//     };
+//   };
+//   res.json(createNote);
+// });
+
+// const deleteNote = (req, res) => {
+//   // const { notes } = req.body;
+//   const { id } = req.body;
+//   const filteredNotes = notes.map((note) => note.id !== id);
+//   fs.writeFile(filterNotes);
+// };
 
 // app.post("/api/notes", (req, res) => {
 //   const newNotes = req.body;

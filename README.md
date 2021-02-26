@@ -4,7 +4,7 @@
 
 ## Description
 
-This Note Taker can be used to write and save notes. This application uses Express.js back end and will save and retrieve note data from a JSON file.
+This Note Taker can be used to write and save notes. This application uses Express.js back end and will save and retrieve note data from a JSON file. You can add notes, edit previous added notes, add new notes, and delete previous notes.
 
 ## Table of Contents
 
@@ -19,16 +19,10 @@ https://github.com/erumd/Note-Taker
 
 https://whispering-falls-96422.herokuapp.com/
 
-Clone the above GitHub repo link and open it on your computer. You can also click on the Heroku link and open up the website to add notes.
+Clone the above GitHub repo link and open it on your computer. You can also click on the Heroku link and open up the website to add notes, edit previous notes, add new notes, and delete previous notes.
 
 ![Screenshot](./Assets/note.jpg)
 ![Screenshot](Assets/addnote.jpg)
-
-When prompted, choose from employee role to add, and enter your response.
-
-Open generateIndex.html file to view your input .
-
-## Usage
 
 ## Questions
 
