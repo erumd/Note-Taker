@@ -13,7 +13,8 @@ app.use(express.static("public"));
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-// require("./db/db.json")(app);
+
+
 
 //gets saved notes and put in db.json
 // app.get("/api/notes", (req, res) => {

@@ -1,5 +1,6 @@
 //used hot restaurant Activity
 // Include fs module
+//https://www.youtube.com/watch?v=yFnXF-w2XI0&ab_channel=JohnCosper
 var fs = require("fs");
 var notes = require("../db/db.json");
 
@@ -42,41 +43,70 @@ module.exports = (app) => {
 
     // res.json(createNote);
 
+    //ORIGINAL CODE MESSING WITH
     notes.push(req.body);
     fs.writeFileSync("./db/db.json", JSON.stringify(notes));
     res.json(notes);
+
+    // notes.push(req.body);
+    // fs.writeFileSync("./db/db.json", JSON.stringify(notes));
+    // // if (err) throw err;
+    // notesdb = notes;
+    // res.send(notesdb);
   });
+
+  // _______________________________________ Trying to get note
+  app.get("/api/notes", (req, res) => {
+    console.log("api get notes");
+    let json = log(json);
+    res.json(json);
+  });
+
+  // _______________________________________ Trying to delete note
 
   app.post("/api/clear", (req, res) => {
     // server code for clearing out all the notes when clicked on in future release
     const createNote = ({ title, text }) => {
       return {
-        id: uuid(),
-        title,
-        text,
+        id: uuid(""),
+        title: data.title,
+        text: data.text,
       };
     };
     res.json(createNote);
   });
 };
 
-const deleteNote = (req, res) => {
-  // const { notes } = req.body;
-  const { id } = req.body;
-  const filteredNotes = notes.map((note) => note.id !== id);
-  fs.writeFile(filterNotes);
-};
+// const deleteNote = (req, res) => {
+//   // const { notes } = req.body;
+//   const { id } = req.body;
+//   const filteredNotes = notes.map((note) => note.id !== id);
+//   fs.writeFile(filterNotes);
+// };
 
-// API call for deleting a note from the list or array
-// app.delete("/api/notes/:id", (req, res) => {
-//   const deleteID = req.params.id;
-//   for (let i = 0; i < notes.length; i++) {
-//     if (deleteID === notes[i].id) {
-//       notesData.splice(i, 1);
-//       // writeToJSONfile();
+// _________________________________________________________________trying new delete
+// API Delete
+// app.delete("/api/notes", function (req, res) {
+//   let deleteID = req.params.id; //tutor helped with
+
+//   // read file and parse
+//   fs.readFile("./db/db.json", (err, data) => {
+//     if (err) throw err;
+//     let notes = JSON.parse(data);
+//     // tutor.splice
+//     for (let i = 0; i < notes.length; i++) {
+//       if (notes[i].id === deleteID) {
+//         notes.splice(i, 1);
+//       }
 //     }
-//   }
-//   res.end();
+//   });
+// });
+
+// // re-write file
+// fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
+//   if (err) throw err;
+//   notes2 = notes;
+//   res.send(notes2);
 // });
 
 // app.post("/api/notes", (req, res) => {
@@ -84,4 +114,4 @@ const deleteNote = (req, res) => {
 //   notesData.push(req.body);
 //   // writeToJSONfile();
 //   res.json(notes);
-// });
+//
