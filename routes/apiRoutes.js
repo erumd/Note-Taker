@@ -87,19 +87,31 @@ module.exports = (app) => {
   // API Delete
   // adding in the : passes in the id as a req.params since that is how the javascript front end is passing
   // it to the routes if you look at index.js line 47 ( in the public folder)
-  app.delete("/api/notes:id", function (req, res) {
-    let deleteID = req.params.id; //tutor helped with
+  app.delete("/api/notes/:id", function (req, res) {
+    // note_data.length = 0;
+    let deleteNote = req.params.id;
+    console.log(deleteNote);
+    //tutor helped with
 
     fs.readFile("./db/db.json", (err, data) => {
       if (err) throw err;
       let notes = JSON.parse(data);
+      console.log("notes", notes);
       // tutor.splice
       for (let i = 0; i < notes.length; i++) {
-        if (notes[i].id === deleteID) {
+        console.log("note id", notes[i].id);
+
+        if (notes[i].id === deleteNote) {
+          console.log("splice method", notes.splice(i, 1));
           notes.splice(i, 1);
+
+          // what happen to the notes array?
+          console.log(notes);
         }
       }
     });
+
+    res.json({ ok: true });
   });
 
   // // re-write file
