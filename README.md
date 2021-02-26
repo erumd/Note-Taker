@@ -22,7 +22,7 @@ https://whispering-falls-96422.herokuapp.com/
 Clone the above GitHub repo link and open it on your computer. You can also click on the Heroku link and open up the website to add notes.
 
 ![Screenshot](./Assets/note.jpg)
-![Screenshot](./Assets/addnote.jpg)
+![Screenshot](Assets/addnote.jpg)
 
 When prompted, choose from employee role to add, and enter your response.
 
