@@ -1,5 +1,4 @@
-//used hot restaurant Activity
-// Include fs module
+//hot restaurant Activity
 //HAD STUDY GROUP WITH JASMINE, WILL, MICHAEL, and TUTOR*
 
 var fs = require("fs");
@@ -25,14 +24,11 @@ module.exports = (app) => {
     res.json(notes);
   });
 
-  // _______________________________________ Trying to get note
   app.get("/api/notes", (req, res) => {
     let json = log(json);
     res.json(json);
   });
 
-  // _________________________________________________________________trying new delete
-  // API Delete
   // adding in the : passes in the id as a req.params since that is how the javascript front end is passing
   // it to the routes if you look at index.js line 47 ( in the public folder)
   app.delete("/api/notes/:id", function (req, res) {
@@ -47,7 +43,7 @@ module.exports = (app) => {
 
       fs.writeFile("./db/db.json", JSON.stringify(filtered), (err) => {
         if (err) throw err;
-        res.sendStatus(204); // error on webpages GET caught goes away. server still running
+        res.sendStatus(204); // error on webpages GET & caught goes away. server still running
       });
     });
   });
