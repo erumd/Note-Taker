@@ -8,12 +8,12 @@ This Note Taker can be used to write and save notes. This application uses Expre
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation](#installation/usage)
+- [Questions](#questions)
 - [Credits](#credits)
 - [License](#license)
 
-## Installation/ Usage
+## Installation/Usage
 
 https://github.com/erumd/Note-Taker
 

@@ -1,5 +1,6 @@
 //used hot restaurant Activity
 // Include fs module
+//HAD STUDY GROUP WITH JASMINE, WILL, MICHAEL, and TUTOR*
 
 var fs = require("fs");
 var notes = require("../db/db.json");
@@ -26,7 +27,6 @@ module.exports = (app) => {
 
   // _______________________________________ Trying to get note
   app.get("/api/notes", (req, res) => {
-    console.log("api get notes");
     let json = log(json);
     res.json(json);
   });
@@ -37,26 +37,23 @@ module.exports = (app) => {
   // it to the routes if you look at index.js line 47 ( in the public folder)
   app.delete("/api/notes/:id", function (req, res) {
     let deleteNote = req.params.id;
-    console.log(deleteNote);
     //tutor helped with
 
     fs.readFile("./db/db.json", (err, data) => {
       if (err) throw err;
       let notes = JSON.parse(data);
-      console.log("notes", notes);
       //tutor helped with filter method
       const filtered = notes.filter((note) => note.id !== deleteNote);
-      console.log("filtered", filtered);
 
       fs.writeFile("./db/db.json", JSON.stringify(filtered), (err) => {
         if (err) throw err;
-        res.sendStatus(204); //tutor said to delete. and error on webpages GET caught goes away. server still running
+        res.sendStatus(204); // error on webpages GET caught goes away. server still running
       });
     });
   });
 }; //end module.export
 
-// ___________________________________________________________________________________________HARD WORK BELOW
+// ___________________________________________________________________________________________HARD WORK BELOW I wanted to keep.
 
 // _______________________________________ Trying to delete note
 
